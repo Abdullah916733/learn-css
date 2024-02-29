@@ -1,0 +1,154 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --colors: aqua;
+  --toggle: white;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rgb(16, 15, 15);
+}
+
+.container {
+  height: 400px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: 0.5s;
+}
+
+.container.active {
+  animation: rotateMain 35s linear infinite;
+  transition: 0.5s;
+}
+
+.container.active:has(li:hover) {
+  animation-play-state: paused;
+}
+
+.container.active:has(li:hover) li {
+  animation-play-state: paused;
+}
+
+.container.active:has(li:hover) li a {
+  animation-play-state: paused;
+}
+
+.container.active:has(li:hover) .toggle {
+  animation-play-state: paused;
+}
+
+
+@keyframes rotateMain {
+  100% {
+    rotate: 1turn;
+  }
+}
+
+
+.container li {
+  left: 0px;
+  list-style: none;
+  position: absolute;
+  transform-origin: 200px;
+  transform: rotate(0deg) translateX(170px);
+  transition: 0.5s;
+  transition-delay: calc(0.1s * var(--i));
+}
+
+.container.active li {
+  transform: rotate(calc(360deg / 8 * var(--i))) translateX(0);
+  animation: scaleAnime 16s linear infinite;
+  animation-delay: calc(2s * var(--i));
+}
+
+
+@keyframes scaleAnime {
+  0% {
+    scale: 1;
+  }
+
+  4% {
+    scale: 1.1;
+  }
+
+  7% {
+    scale: 1;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+.container li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  color: var(--colors);
+  border: 1px solid var(--colors);
+  font-size: 35px;
+  transform: rotate(calc(360deg / -8 * var(--i)));
+  transition: 1s;
+  cursor: pointer;
+}
+
+.container.active li a {
+  animation: rotateMain-icon 35s linear infinite;
+}
+
+@keyframes rotateMain-icon {
+  100% {
+    rotate: -1turn;
+  }
+}
+
+.container.active li a:hover {
+  box-shadow: 0 0 30px var(--colors), 0 0 50px var(--colors);
+  transition: 0s;
+  background: var(--colors);
+  color: azure;
+}
+
+.container .toggle {
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  z-index: 3;
+  background-color: rgb(14, 14, 14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 40px;
+  color: black;
+  transform: rotate(0deg);
+  transition: 0.5s;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: 0px 0px 30px white, 0px 0px 50px white;
+  filter: brightness(1.75);
+}
+
+.container.active .toggle {
+  animation: rotateMain-icon 35s linear infinite;
+  background-color: var(--toggle);
+  box-shadow: 0px 0px 30px var(--toggle), 0px 0px 50px var(--toggle);
+}
+
+.container.active .toggle {
+  transform: rotate(318deg);
+}

@@ -1,0 +1,91 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(41, 40, 40);
+  animation: ColorCub 15s linear infinite;
+}
+
+@keyframes ColorCub {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.container {
+  position: relative;
+  animation: rotateCub 15s linear infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes rotateCub {
+  0% {
+    transform: rotateX(-20deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(-20deg) rotateY(360deg);
+  }
+}
+
+.container .cube {
+  position: relative;
+  z-index: 2;
+  transform-style: preserve-3d;
+}
+
+.container .cube:nth-child(2) {
+  transform: translateZ(-90px);
+  z-index: 1;
+}
+
+.container .cube:nth-child(3) {
+  transform: translateZ(90px);
+  z-index: 3;
+}
+
+.container .cube .cube-box {
+  position: relative;
+  transform-style: preserve-3d;
+  translate: calc(-95px * var(--x)) calc(-90px * var(--y));
+}
+
+.container .cube .cube-box span {
+  position: absolute;
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+  background-color: white;
+  border: 1px solid wheat;
+  transform: rotateY(calc(90deg * var(--i))) translateZ(40px);
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+
+.container .cube .cube-box:hover span {
+  background-color: rgb(248, 51, 51);
+  transition: 0s;
+  filter: drop-shadow(10px 10px 20px rgb(248, 51, 51));
+}
+
+.container .cube .cube-box span.top {
+  display: inline-block;
+  transform: rotateX(90deg) translateZ(40px);
+  background: white;
+  transition: 0.5s;
+}
+
+.container .cube .cube-box:hover span.top {
+  background-color: rgb(248, 51, 51);
+  transition: 0s;
+  filter: drop-shadow(10px 10px 20px rgb(248, 51, 51));
+}

@@ -1,0 +1,111 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(32, 31, 31);
+}
+
+.container {
+  position: relative;
+  margin-top: -130px;
+  transform: skewY(-20deg);
+  animation: colorChange 5s linear infinite;
+}
+
+@keyframes colorChange {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.container .cube {
+  z-index: 2;
+  position: relative;
+}
+
+.container .cube:nth-child(2) {
+  translate: -60px -60px;
+  z-index: 1;
+}
+
+.container .cube:nth-child(3) {
+  translate: 60px 60px;
+  z-index: 3;
+}
+
+.container .cube .cube-box {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  translate: calc(-70px * var(--x)) calc(-60px * var(--y));
+}
+
+.container .cube .cube-box span {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  background: white;
+  display: inline-block;
+  z-index: var(--i);
+  transition: 0.5s;
+}
+
+.container .cube .cube-box span:hover {
+  background-color: aqua;
+  filter: drop-shadow(10px 10px 20px aqua);
+  transition: 0s;
+}
+
+.container .cube .cube-box span::before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 40px;
+  left: -40px;
+  background: rgb(237, 234, 234);
+  transform: skewY(45deg);
+  transform-origin: right;
+  transition: 0.5s;
+}
+
+.container .cube .cube-box span:hover:before {
+  background-color: rgb(93, 219, 219);
+  filter: drop-shadow(10px 10px 20px rgb(93, 219, 219));
+  transition: 0s;
+}
+
+.container .cube .cube-box span::after {
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 100%;
+  top: -40px;
+  left: 0;
+  background: rgb(246, 240, 240);
+  transform: skewX(45deg);
+  transform-origin: bottom;
+  transition: 0.5s;
+}
+
+.container .cube .cube-box span:hover:after {
+  background-color: aqua;
+  filter: drop-shadow(10px 10px 20px aqua);
+  transition: 0s;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    transform: skewY(-20deg) scale(0.7);
+  }
+}

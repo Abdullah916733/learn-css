@@ -1,0 +1,111 @@
+body {
+  overflow: hidden;
+}
+
+h1 {
+  background-color: blue;
+  margin: 10px 0px;
+  font-size: 40px;
+  opacity: 0;
+  animation: Anime1 0.5s 0.5s linear forwards;
+}
+@keyframes Anime1 {
+  0% {
+    opacity: 0;
+    transform: translateX(400px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+h2 {
+  background-color: green;
+  margin: 10px 0px;
+  font-size: 40px;
+  opacity: 0;
+  animation: Anime2 1s 1s linear forwards;
+}
+@keyframes Anime2 {
+  0% {
+    opacity: 0;
+    transform: translateX(600px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+h3 {
+  background-color: orange;
+  margin: 10px 0px;
+  font-size: 40px;
+  opacity: 0;
+  animation: Anime3 1.5s 1.5s linear forwards;
+}
+@keyframes Anime3 {
+  0% {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+h4 {
+  background-color: pink;
+  margin: 10px 0px;
+  font-size: 40px;
+  opacity: 0;
+  animation: Anime4 2s 2s linear forwards;
+}
+@keyframes Anime4 {
+  0% {
+    opacity: 0;
+    transform: translateX(1050px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+h5 {
+  background-color: red;
+  margin: 10px 0px;
+  font-size: 40px;
+  opacity: 0;
+  animation: Anime5 2.5s 2.5s linear forwards;
+}
+@keyframes Anime5 {
+  0% {
+    opacity: 0;
+    transform: translateX(400px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+h6 {
+  background-color: orange;
+  margin: 10px 0px;
+  font-size: 40px;
+  opacity: 0;
+  animation: Anime6 3s 3s linear forwards;
+}
+@keyframes Anime6 {
+  0% {
+    opacity: 0;
+    transform: translateX(800px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}/*# sourceMappingURL=home.css.map */

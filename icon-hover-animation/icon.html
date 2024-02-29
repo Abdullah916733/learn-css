@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="icon.css" />
+    <title>Icon Hover Animation</title>
+  </head>
+  <body>
+    <ul class="social-icon">
+      <li>
+        <a href="#" data-bgcolor="#628ce6" style="--color: #3b5998"
+          ><i class="fa fa-facebook" aria-hidden="true"></i
+        ></a>
+      </li>
+      <li>
+        <a href="#" data-bgcolor="#eb524d" style="--color: #c4302b"
+          ><i class="fa fa-youtube" aria-hidden="true"></i
+        ></a>
+      </li>
+      <li>
+        <a href="#" data-bgcolor="#52c1ec" style="--color: #00acee"
+          ><i class="fa fa-twitter" aria-hidden="true"></i
+        ></a>
+      </li>
+      <li>
+        <a href="#" data-bgcolor="#f04973" style="--color: #f2003c"
+          ><i class="fa fa-instagram" aria-hidden="true"></i
+        ></a>
+      </li>
+    </ul>
+  </body>
+
+  <script>
+    let icons = document.querySelectorAll(".social-icon li a");
+
+    icons.forEach((icon) => {
+      icon.addEventListener("mousemove", function (e) {
+        let x = e.target.offsetLeft  ;
+        let y = e.target.offsetTop ;
+        let center = x + y ;
+
+        // console.log(e.target.offsetWidth);
+        // console.log(icon.innerWidth);
+        icon.style.transform = `rotateX(${center}deg) rotateY(${center}deg)`;
+
+        let bgcolor = e.target.getAttribute("data-bgcolor")
+
+        document.body.style.background = bgcolor;
+
+      });
+
+      icon.addEventListener("mouseleave", function (e) {
+        let x = (window.innerWidth - e.pageX) / 50;
+        let y = (window.innerHeight - e.pageY) / 90;
+        icon.style.transform = `rotateX(0deg) rotateY(0deg)`;
+        document.body.style.background = 'rgb(241, 230, 230)';
+
+      });
+    });
+  </script>
+</html>

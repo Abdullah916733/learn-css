@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link Swiper's CSS start -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <!-- Link Swiper's CSS end -->
+    <link rel="stylesheet" href="particels.css" />
+    <title>Particels Slider</title>
+  </head>
+  <body>
+    <section>
+
+          <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="taj-mehel.jpg" alt="image" class="bg-image" />
+      </div>
+      <div class="swiper-slide">
+        <img src="Beautiful-place.jpg" />
+      </div>
+      <div class="swiper-slide">
+        <img src="garden.jpg" />
+      </div>
+      <div class="swiper-slide">
+        <img src="lake.jpg" />
+      </div>
+    </div>
+  </div>
+      <div id="particles-js"></div>
+    </section>
+
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+
+    <!-- Swiper JS  start -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- Swiper JS  end -->
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        effect: "fade",
+        autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+      });
+    </script>
+
+  </body>
+</html>

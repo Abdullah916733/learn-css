@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="rotate-navbar.css" />
+    <title>Rotate Navbar</title>
+  </head>
+  <body>
+    <ul class="container">
+      <div class="toggle"><ion-icon name="add-outline"></ion-icon></div>
+      <li style="--i:0; --col:red" ><a href="#"><ion-icon name="person-outline"></ion-icon></a></li>
+      <li style="--i:1; --col:red" ><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+      <li style="--i:2; --col:red" ><a href="#"><ion-icon name="settings-outline"></ion-icon></a></li>
+      <li style="--i:3; --col:red" ><a href="#"><ion-icon name="rocket-outline"></ion-icon></a></li>
+      <li style="--i:4; --col:red" ><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+      <li style="--i:5; --col:red" ><a href="#"><ion-icon name="logo-youtube"></ion-icon></a></li>
+      <li style="--i:6; --col:red" ><a href="#"><ion-icon name="home-outline"></ion-icon></a></li>
+      <li style="--i:7; --col:red" ><a href="#"><ion-icon name="alarm-outline"></ion-icon></a></li>
+    </ul>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+
+    <script>
+   let toggle = document.querySelector(".toggle");
+   let container = document.querySelector('.container')
+   let listBtn = document.querySelectorAll('.container li  a')
+
+
+   toggle.onclick = function(event){
+      return container.classList.toggle("active") ;
+} 
+
+   for(let i = 0 ; i < listBtn.length ; i++){
+        listBtn[i].addEventListener('mouseenter' , function(event){
+           let changeColor =  "#" + Math.floor(Math.random() * 0xffffff ).toString(16)
+             event.target.style.setProperty("--colors" , changeColor ) ;
+             toggle.style.setProperty("--toggle" , changeColor ) ;
+        })
+   }
+
+    </script>
+  </body>
+</html>

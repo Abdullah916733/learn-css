@@ -1,0 +1,60 @@
+body {
+  overflow: hidden;
+}
+
+$heading: (
+  1: (
+    bg: blue,
+    anime: 400px,
+  ),
+  2: (
+    bg: green,
+    anime: 600px,
+  ),
+  3: (
+    bg: orange,
+    anime: 300px,
+  ),
+  4: (
+    bg: pink,
+    anime: 1050px,
+  ),
+  5: (
+    bg: red,
+    anime: 400px,
+  ),
+  6: (
+    bg: orange,
+    anime: 800px,
+  ),
+);
+
+@mixin bgFunc($value, $eachHeading) {
+  $bgValue: map-get($value, bg);
+  $TransformValue: map-get($value, anime);
+  background-color: $bgValue;
+  margin: 10px 0px;
+  font-size: 40px;
+  opacity: 0;
+  animation: Anime#{$eachHeading} calc(0.5s * $eachHeading) calc(
+      0.5s * $eachHeading
+    ) linear forwards;
+
+  @keyframes Anime#{$eachHeading} {
+    0% {
+      opacity: 0;
+      transform: translateX($TransformValue);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+}
+
+@each $headingNumber, $AllBgValue in $heading {
+  $speadOperator: $AllBgValue, $headingNumber;
+  h#{$headingNumber} {
+    @include bgFunc($speadOperator...);
+  }
+}

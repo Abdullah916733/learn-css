@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="parallax-form.css" />
+    <title>Parallax Form</title>
+  </head>
+  <body>
+
+    <section class="parallax-form-section">
+      <div class="images-box">
+        <img class="layer" data-speed="2" src="images/bg.jpg" alt="image" />
+        <img
+          class="layer move"
+          data-speed="9"
+          src="images/moon.png"
+          alt="image"
+        />
+        <img
+          class="layer move"
+          data-speed="3"
+          src="images/mountains01.png"
+          alt="image"
+        />
+        <img
+          class="layer move "
+          data-speed="2"
+          src="images/mountains02.png"
+          alt="image"
+        />
+        <img class="layer move" data-speed="1" src="images/road.png" alt="image" />
+      </div>
+      <div class="form">
+        <h2>Sign In</h2>
+        <input type="text" placeholder="Enter your name" />
+        <input type="password" placeholder="Enter your password" />
+
+        <input type="submit" value="Login" />
+
+        <div class="group">
+          <p>Forget password</p>
+
+          <p>SignUp</p>
+        </div>
+      </div>
+      <div class="stars" >
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+      </div>
+    </section>
+  </body>
+
+  <script>
+    document.addEventListener("mousemove", function (e) {
+      let layers = this.querySelectorAll(".layer.move");
+
+      layers.forEach((layer) => {
+        let speed = layer.getAttribute("data-speed");
+
+        let x = (window.innerWidth - e.pageX * speed) / 100;
+        let y = (window.innerHeight - e.pageY * speed) / 100;
+        layer.style.transform = `translate(${x}px , ${y}px)`;
+      });
+    });
+
+
+  </script>
+</html>

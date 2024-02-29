@@ -1,0 +1,50 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.btn {
+    margin: 0px 20px;
+    padding: 20px 80px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color:  #4d4d33;
+    color:black;
+    border-radius: 10%;
+    font-size: 25px;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+}
+
+.btn span {
+    position: absolute;
+    transform: translate(-50%,-50%);
+   border: 2px solid white;
+   border-radius: 50%;
+   transition: 0.5s;
+   animation:circle 2s linear infinite;
+   filter: brightness(1.7);
+   pointer-events: none;
+}
+
+@keyframes circle {
+    
+    0%{
+       height: 0;
+       width: 0;
+    }
+    100%{
+        height: 350px;
+        width: 350px;
+     }
+}

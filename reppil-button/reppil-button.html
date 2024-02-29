@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reppil-button.css" />
+    <title>Ripple Button</title>
+  </head>
+  <body>
+    <a href="#" class="btn">Awesome</a>
+    <a href="#" class="btn">Button</a>
+
+    <script>
+      let button = document.querySelectorAll(".btn");
+
+      button.forEach((eachButton) => {
+        eachButton.addEventListener("click", function (e) {
+          let Y = e.pageY - e.target.offsetTop;
+          let X = e.pageX - e.target.offsetLeft;
+
+          let color = "#" + Math.floor(Math.random() * 0xffffff).toString(16);
+
+          let span = document.createElement("span");
+
+          span.style.left = X + "px";
+          span.style.top = Y + "px";
+          span.style.borderColor = color;
+          span.style.boxShadow =  `${color} 0px 5px 15px` ; 
+
+          this.appendChild(span);
+
+          setTimeout(() => {
+            span.remove();
+          }, 2000);
+        });
+      });
+    </script>
+  </body>
+</html>
